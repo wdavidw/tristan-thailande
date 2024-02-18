@@ -4,7 +4,9 @@
 name: Website Publish
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+permissions:
+  contents: write
 jobs:
   www:
     runs-on: ubuntu-latest
@@ -25,7 +27,7 @@ jobs:
     # By default, GH pages support jekyll
     # and ignore underscore paths such as `_next`
     - run: touch out/.nojekyll
-    - run: echo 'thailande.tristan.adaltas.com' > out/CNAME
+    # - run: echo 'thailande.tristan.didonc.com' > out/CNAME
     - name: Publish
       uses: JamesIves/github-pages-deploy-action@v4
       with:
