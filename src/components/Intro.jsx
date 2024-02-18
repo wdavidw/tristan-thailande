@@ -9,7 +9,7 @@ export function Intro() {
         </Link>
       </div> */}
       <h1 className="mt-14 font-display text-4xl/tight font-light text-white">
-        Tristan en Thailand{' '}
+        Tristan en Thaïlande{' '}
         <span className="text-[#a33ef2] text-2xl">Déroulement de mon voyage</span>
       </h1>
       <p className="mt-4 text-sm/6 text-gray-300">
@@ -24,7 +24,7 @@ export function Intro() {
 export function IntroFooter() {
   return (
     <p className="flex items-baseline gap-x-2 text-[0.8125rem]/6 text-gray-500">
-      Merci à l'école{' '}
+      Merci à l&apos;école{' '}
       <Link href="https://ecolelasource.org/" className="text-slate-100">La Source</Link> de Meudon.
     </p>
   )

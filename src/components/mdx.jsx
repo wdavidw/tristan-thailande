@@ -29,6 +29,9 @@ export const img = function Img(props) {
               // className="object-fill"
               alt={previewImage.alt}
               sizes="(min-width: 1280px) 60vw, (min-width: 1024px) 45vw, (min-width: 640px) 32rem, 95vw"
+              loader={({ src }) => {
+                return src
+              }}
               placeholder="blur"
               {...props}
             />
@@ -42,6 +45,9 @@ export const img = function Img(props) {
         alt=""
         sizes="(min-width: 1280px) 36rem, (min-width: 1024px) 45vw, (min-width: 640px) 32rem, 95vw"
         placeholder="blur"
+        loader={({ src }) => {
+          return src
+        }}
         {...props}
       />
       {/* <div className="cursor-pointer absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10 dark:ring-white/10" /> */}
