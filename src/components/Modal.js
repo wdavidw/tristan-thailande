@@ -72,11 +72,12 @@ export default function Modal({
                 {!hideClose && (
                   <button
                     className={clsx(
+                      'caret-transparent',
                       'focus:border-none',
-                      'rounded rouded-5',
-                      'focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-1 ',
-                      'absolute -top-3 -right-3 z-30 outline-none',
-                      '[&_svg]:fill-slate-600 [&_svg]:hover:fill-indigo-600',
+                      'rounded-full',
+                      'focus:outline-none focus:ring-2 focus:ring-indigo-200 ',
+                      'absolute -right-3 -top-3 z-30 outline-none',
+                      '[&_svg]:fill-slate-400 [&_svg]:hover:fill-indigo-200',
                     )}
                     onClick={onClose}
                     ref={closeButtonRef}
