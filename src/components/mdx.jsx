@@ -12,30 +12,39 @@ export const a = Link
 
 export const img = function Img(props) {
   const [previewImage, setPreviewImage] = useState(false)
+  const [imageRatio, setImageRatio] = useState(null)
   return (
     <div className="relative mt-8 overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900 [&+*]:mt-8">
       {previewImage && (
-        <Modal open={true} onClose={() => setPreviewImage(false)} hideClose={false}>
-          <div
-            className={clsx(
-              'relative max-h-[90vh] h-[90vh] max-w-[95vw] w-[95vw] p-4',
-              'flex items-center justify-center',
-            )}
-          >
+        <Modal
+          open={true}
+          onClose={() => setPreviewImage(false)}
+          hideClose={false}
+          // classNamePanel="h-full flex items-center justify-center"
+          // classNamePanel="h-full"
+          classNamePanel="max-h-full"
+          classNamePanelOutside="h-full p-5 sm:p-5"
+        >
             <Image
-              // className="h-full w-full object-contain"
-              className="max-h-full max-w-full w-auto h-auto rounded-lg"
-              // className="h-full w-full object-cover"
-              // className="object-fill"
+              className={clsx(
+                'rounded-lg block',
+                'h-auto w-auto max-h-full max-w-full mx-auto object-cover',
+                // `ratio-[${props.src.width}/${props.src.height}]`
+              )}
+              // style={{
+              //   'aspect-ratio': `${props.src.width}/${props.src.height}`
+              // }}
               alt={previewImage.alt}
-              sizes="(min-width: 1280px) 60vw, (min-width: 1024px) 45vw, (min-width: 640px) 32rem, 95vw"
-              loader={({ src }) => {
-                return src
+              // sizes="(min-width: 1280px) 60vw, (min-width: 1024px) 45vw, (min-width: 640px) 32rem, 95vw"
+              loader={(arg) => {
+                // console.log('image:large', arg, arguments[0].src)
+                // setImageRatio([width, height])
+                // setImageRatio(width)
+                return arg.src
               }}
               placeholder="blur"
               {...props}
             />
-          </div>
         </Modal>
       )}
       {/* <div className="relative mt-8 overflow-hidden bg-gray-50 dark:bg-gray-900 [&+*]:mt-8"> */}
@@ -46,6 +55,7 @@ export const img = function Img(props) {
         sizes="(min-width: 1280px) 36rem, (min-width: 1024px) 45vw, (min-width: 640px) 32rem, 95vw"
         placeholder="blur"
         loader={({ src }) => {
+          // console.log('image:small', arguments[0])
           return src
         }}
         {...props}

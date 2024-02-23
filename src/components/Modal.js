@@ -12,6 +12,8 @@ not close by itself and call `onClose` instead
 */
 
 export default function Modal({
+  classNamePanel,
+  classNamePanelOutside,
   children,
   hideClose = true,
   initialFocus,
@@ -22,7 +24,6 @@ export default function Modal({
   if (!initialFocus) {
     initialFocus = closeButtonRef
   }
-  console.log('show', open)
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -40,12 +41,17 @@ export default function Modal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-85 transition-opacity" />
+          <div
+            className="fixed inset-0 bg-black/85 transition-opacity"
+          />
         </Transition.Child>
 
         <div className="z-100 fixed inset-0 overflow-y-auto">
           {/* sm:items-center was below but probably without much effect */}
-          <div className="flex h-full items-center justify-center p-4 text-center sm:p-0">
+          <div className={clsx(
+            classNamePanelOutside,
+            "flex h-full items-center justify-center text-center sm:p-0"
+          )}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -57,15 +63,11 @@ export default function Modal({
             >
               <Dialog.Panel
                 className={clsx(
-                  // "overflow-hidden",
-                  'rounded',
-                  // Becareful, dont had margin
-                  // For example, `mt-[3rem]` will move the modal down, eventually
-                  // below the screen limit, on small screens
-                  'relative transform text-left shadow-xl transition-all',
-                  'rounded-lg bg-[var(--layout-top)]',
-                  // Add border to avoid transparency behind the close icon
-                  // 'border-4 border-[var(--layout-top)]',
+                  classNamePanel,
+                  // 'rounded',
+                  // 'relative transform text-left shadow-xl transition-all',
+                  // 'rounded-lg bg-[var(--layout-top)]',
+                  'relative flex'
                 )}
               >
                 {children}
