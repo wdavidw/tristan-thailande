@@ -8,9 +8,9 @@ export function Intro() {
           <Logo className="inline-block h-8 w-auto" />
         </Link>
       </div> */}
-      <h1 className="mt-14 font-display text-4xl/tight font-light text-white">
+      <h1 className="text-center lg:text-left mt-14 font-display text-4xl/tight font-light text-white">
         Tristan en Thaïlande{' '}
-        <span className="text-[#a33ef2] text-2xl">Déroulement de mon voyage</span>
+        <span className="text-[#a33ef2] text-2xl block">Déroulement de mon voyage</span>
       </h1>
       <p className="mt-4 text-sm/6 text-gray-300">
         Voici le récit de mon voyage, jour par jour, accompagné de ma maman,
