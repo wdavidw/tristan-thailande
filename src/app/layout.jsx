@@ -20,12 +20,12 @@ const monaSans = localFont({
 })
 
 export const metadata = {
-  title: 'Commit - Open-source Git client for macOS minimalists',
+  title: 'Tristan en Thaïlande - déroulement de mon voyage',
   description:
-    'Commit is a lightweight Git client you can open from anywhere any time you’re ready to commit your work with a single keyboard shortcut. It’s fast, beautiful, and completely unnecessary.',
+    'Voici le récit de mon voyage en Thaïlande, jour par jour, accompagné de ma maman, mon papa et de mon petit frère, en découvrant la culture du pays, en visitant les temples et en profitant de la mer, le tout en un mois.',
   alternates: {
     types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
+      // 'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
     },
   },
 }
